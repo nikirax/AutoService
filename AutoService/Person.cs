@@ -25,13 +25,11 @@ namespace AutoService
         /// </summary>
         public string Post { get; set; }
 
-        public void AddPerson(string name, string lastName, byte age, string post)
+        public List<Person> listPerson = new List<Person>();
+
+        public override string ToString()
         {
-            Name = name;
-            LastName = lastName;
-            Age = age;
-            Post = post;
-            List<Person> listPerson = new List<Person>();
+            return $"Имя: {Name},Фамилия: {LastName},Возраст: {Age},Должность: {Post}";
         }
     }
 }

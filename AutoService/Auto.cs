@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
 
 namespace AutoService
 {
@@ -30,20 +32,9 @@ namespace AutoService
 
         public List<Auto> listAuto = new List<Auto>();
 
-        public void AddAuto(string number,string marka,string model,string nameHolder,string damage)
-        {
-            listAuto.Add(new Auto 
-            {
-                Number = number, 
-                Marka = marka,
-                Model = model,
-                NameHolder = nameHolder,
-                Damage = damage
-            });
-        }
         public override string ToString()
         {
-            return $"Номер авто: {Number}";
+            return $"Номер авто: {Number},Марка авто: {Marka},Модель: {Model},Имя владельца: {NameHolder},Что нужно починить: {Damage}";
         }
     }
 }

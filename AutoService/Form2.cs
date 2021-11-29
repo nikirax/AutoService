@@ -104,7 +104,7 @@ namespace AutoService
         public bool Mistakes(string text)
         {
             if (text == null ||
-                text == " " ||
+                text == "" ||
                 Regex.IsMatch(text, @"^[0-9]+$"))
             {
                 return true;
@@ -122,7 +122,7 @@ namespace AutoService
             if(numbers == true)
             {
                 if (text == null ||
-                   text == " ")
+                   text == "")
                 {
                     return true;
                 }

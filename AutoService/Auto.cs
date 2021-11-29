@@ -36,7 +36,7 @@ namespace AutoService
 
         public override string ToString()
         {
-            return $"Номер авто: {Number},Марка авто: {Marka},Модель: {Model},Имя владельца: {NameHolder},Что нужно починить: {Damage}";
+            return $"Номер авто: {Number},  Марка авто: {Marka},  Модель: {Model},  Имя владельца: {NameHolder},  Что нужно починить: {Damage}";
         }
     }
 }

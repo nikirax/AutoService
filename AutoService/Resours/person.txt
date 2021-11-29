@@ -1,6 +1,2 @@
-Имя: fsdfsdf,Фамилия: fsdf,Возраст: 32,Должность: fsdfsdfsdf
-
-Имя: dfgdfgdfg,Фамилия: dfgfdgfd,Возраст: 45,Должность: dgfdgfd
-Имя: younger,Фамилия: rose,Возраст: 35,Должность: job
-Имя: younger,Фамилия: rose,Возраст: 32,Должность: job
-Имя: younger,Фамилия: rose,Возраст: 30,Должность: job
+Имя: Alexnder,  Фамилия: Jobov,  Возраст: 34,  Должность: Superman
+Имя: Sasha,  Фамилия: Urban,  Возраст: 40,  Должность: Master

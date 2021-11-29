@@ -31,7 +31,7 @@ namespace AutoService
 
         public override string ToString()
         {
-            return $"Имя: {Name},Фамилия: {LastName},Возраст: {Age},Должность: {Post}";
+            return $"Имя: {Name},  Фамилия: {LastName},  Возраст: {Age},  Должность: {Post}";
         }
     }
 }

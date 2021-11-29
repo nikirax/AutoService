@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -38,11 +39,30 @@ namespace AutoService
         /// <param name="e"></param>
         public void AddAuto_Click(object sender, EventArgs e)
         {
-            Auto auto = new Auto();
-            auto.listAuto.Add(new Auto { Number = textBox1.Text, Marka = textBox2.Text,Model = textBox3.Text,NameHolder = textBox4.Text, Damage = textBox5.Text });//добавляем в лист
-            using (var sw = new StreamWriter(@"C:\Users\nikit\source\repos\AutoService\AutoService\Resours\auto.txt", true))
+            if (Mistakes(textBox1.Text,true)||
+                Mistakes(textBox2.Text)||
+                Mistakes(textBox3.Text, true)||
+                Mistakes(textBox4.Text)||
+                Mistakes(textBox5.Text, true))// TODO: Сделать чтобы в проверку можно было писать вот так Котов А.С. то есть добавить точки и кирилицу + пробелы
             {
-                sw.WriteLine(auto.listAuto[0]);//записываем в файл в новом потоке
+                MessageBox.Show("Чувак тут чет не то");
+            }
+            else
+            {
+                Auto auto = new Auto();
+                auto.listAuto.Add(new Auto
+                {
+                    Number = textBox1.Text,
+                    Marka = textBox2.Text,
+                    Model = textBox3.Text,
+                    NameHolder = textBox4.Text,
+                    Damage = textBox5.Text
+                });//добавляем в лист
+                using (var sw = new StreamWriter(
+                    @"C:\Users\nikit\source\repos\AutoService\AutoService\Resours\auto.txt", true))
+                {
+                    sw.WriteLine(auto.listAuto[0]);//записываем в файл в новом потоке
+                }
             }
         }
         /// <summary>
@@ -52,12 +72,65 @@ namespace AutoService
         /// <param name="e"></param>
         private void AddPerson_Click(object sender, EventArgs e)
         {
-            Person person = new Person();
-            person.listPerson.Add(new Person {Name = textBox6.Text,LastName = textBox7.Text, Age = Convert.ToByte(textBox8.Text) , Post = textBox9.Text});//добавляем в лист
-            using (var sw = new StreamWriter(@"C:\Users\nikit\source\repos\AutoService\AutoService\Resours\person.txt", true))
+            if (Mistakes(textBox6.Text) ||
+               Mistakes(textBox7.Text) ||
+               textBox8.Text == null || (!Regex.IsMatch(textBox8.Text, @"^[0-9]+$")) ||
+               Mistakes(textBox9.Text))
             {
-                sw.WriteLine(person.listPerson[0]);//записываем в файл в новом потоке
+                MessageBox.Show("Чувак тут чет не то");
             }
+            else
+            {
+                Person person = new Person();
+                person.listPerson.Add(new Person
+                {
+                    Name = textBox6.Text,
+                    LastName = textBox7.Text,
+                    Age = Convert.ToByte(textBox8.Text),
+                    Post = textBox9.Text
+                });//добавляем в лист
+                using (var sw = new StreamWriter(
+                    @"C:\Users\nikit\source\repos\AutoService\AutoService\Resours\person.txt", true))
+                {
+                    sw.WriteLine(person.listPerson[0]);//записываем в файл в новом потоке
+                }
+            }
+        }
+        /// <summary>
+        /// Проверяет есть ли в тексте только буквы
+        /// </summary>
+        /// <param name="text">Текст который будем проверять</param>
+        /// <returns></returns>
+        public bool Mistakes(string text)
+        {
+            if(text == null ||
+                (!Regex.IsMatch(text, @"^[a-zA-Z]+$")))
+            {
+                return true;
+            }
+            return false;
+        }
+        /// <summary>
+        /// Проверяет есть ли в тексте только цифры и буквы
+        /// </summary>
+        /// <param name="text">Текст который будем проверять</param>
+        /// <param name="numbers">Есть ли цифры</param>
+        /// <returns></returns>
+        public bool Mistakes(string text,bool numbers)
+        {
+            if(numbers == true)
+            {
+                if (text == null ||
+                   (!Regex.IsMatch(text, @"^[a-zA-Z0-9]+$")))
+                {
+                    return true;
+                }
+            }
+            else
+            {
+                return Mistakes(text);
+            }
+            return false;
         }
     }
 }

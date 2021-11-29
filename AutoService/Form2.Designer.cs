@@ -132,6 +132,7 @@ namespace AutoService
             // 
             this.textBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBox1.Location = new System.Drawing.Point(171, 43);
+            this.textBox1.MaxLength = 8;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(171, 32);
             this.textBox1.TabIndex = 7;
@@ -140,30 +141,34 @@ namespace AutoService
             // 
             this.textBox2.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBox2.Location = new System.Drawing.Point(146, 84);
+            this.textBox2.MaxLength = 16;
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(171, 32);
+            this.textBox2.Size = new System.Drawing.Size(196, 32);
             this.textBox2.TabIndex = 8;
             // 
             // textBox3
             // 
             this.textBox3.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBox3.Location = new System.Drawing.Point(146, 125);
+            this.textBox3.MaxLength = 32;
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(171, 32);
+            this.textBox3.Size = new System.Drawing.Size(251, 32);
             this.textBox3.TabIndex = 9;
             // 
             // textBox4
             // 
             this.textBox4.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBox4.Location = new System.Drawing.Point(226, 166);
+            this.textBox4.MaxLength = 32;
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(171, 32);
+            this.textBox4.Size = new System.Drawing.Size(218, 32);
             this.textBox4.TabIndex = 10;
             // 
             // textBox5
             // 
             this.textBox5.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBox5.Location = new System.Drawing.Point(214, 207);
+            this.textBox5.MaxLength = 1000;
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(459, 32);
             this.textBox5.TabIndex = 11;
@@ -216,6 +221,7 @@ namespace AutoService
             // 
             this.textBox6.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBox6.Location = new System.Drawing.Point(67, 334);
+            this.textBox6.MaxLength = 16;
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(171, 32);
             this.textBox6.TabIndex = 16;
@@ -224,6 +230,7 @@ namespace AutoService
             // 
             this.textBox7.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBox7.Location = new System.Drawing.Point(108, 369);
+            this.textBox7.MaxLength = 16;
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(171, 32);
             this.textBox7.TabIndex = 17;
@@ -232,6 +239,7 @@ namespace AutoService
             // 
             this.textBox8.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBox8.Location = new System.Drawing.Point(97, 404);
+            this.textBox8.MaxLength = 2;
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(171, 32);
             this.textBox8.TabIndex = 18;
@@ -240,6 +248,7 @@ namespace AutoService
             // 
             this.textBox9.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBox9.Location = new System.Drawing.Point(127, 440);
+            this.textBox9.MaxLength = 16;
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(171, 32);
             this.textBox9.TabIndex = 19;

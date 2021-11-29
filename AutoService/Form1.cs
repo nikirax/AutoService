@@ -8,7 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+// TODO: Сделать возможность удалять и изменять текущие записи
+// TODO: Добавить возсожность фильтровать а то есть искать нужное в файле.
+// TODO: Необязательно, но шифровать свои записи в каком нибуть json или xml
 namespace AutoService
 {
     /// <summary>

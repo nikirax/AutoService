@@ -23,5 +23,10 @@ namespace AutoService
             Form ifrm = Application.OpenForms[0];
             ifrm.Show();
         }
+
+        private void AddAuto_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

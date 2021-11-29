@@ -1,4 +1,6 @@
-﻿namespace AutoService
+﻿using System.Collections.Generic;
+
+namespace AutoService
 {
     /// <summary>
     /// Авто 
@@ -25,5 +27,15 @@
         /// Поломка
         /// </summary>
         public string Damage { get; set; }
+
+        public void AddAuto(string number,string marka,string model,string nameHolder,string damage)
+        {
+            number = Number;
+            marka = Marka;
+            model = Model;
+            nameHolder = NameHolder;
+            damage = Damage;
+            List<Auto> listAuto = new List<Auto>();
+        }
     }
 }

@@ -24,7 +24,9 @@ namespace AutoService
         /// Должность
         /// </summary>
         public string Post { get; set; }
-
+        /// <summary>
+        /// Лист рабочих для добавления в файл
+        /// </summary>
         public List<Person> listPerson = new List<Person>();
 
         public override string ToString()

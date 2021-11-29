@@ -29,7 +29,9 @@ namespace AutoService
         /// Поломка
         /// </summary>
         public string Damage { get; set; }
-
+        /// <summary>
+        /// Лист авто для добавления в файл
+        /// </summary>
         public List<Auto> listAuto = new List<Auto>();
 
         public override string ToString()

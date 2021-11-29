@@ -43,7 +43,7 @@ namespace AutoService
                 Mistakes(textBox2.Text)||
                 Mistakes(textBox3.Text, true)||
                 Mistakes(textBox4.Text)||
-                Mistakes(textBox5.Text, true))// TODO: Сделать чтобы в проверку можно было писать вот так Котов А.С. то есть добавить точки и кирилицу + пробелы
+                Mistakes(textBox5.Text, true))
             {
                 MessageBox.Show("Чувак тут чет не то");
             }
@@ -103,8 +103,9 @@ namespace AutoService
         /// <returns></returns>
         public bool Mistakes(string text)
         {
-            if(text == null ||
-                (!Regex.IsMatch(text, @"^[a-zA-Z]+$")))
+            if (text == null ||
+                text == " " ||
+                Regex.IsMatch(text, @"^[0-9]+$"))
             {
                 return true;
             }
@@ -121,7 +122,7 @@ namespace AutoService
             if(numbers == true)
             {
                 if (text == null ||
-                   (!Regex.IsMatch(text, @"^[a-zA-Z0-9]+$")))
+                   text == " ")
                 {
                     return true;
                 }

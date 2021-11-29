@@ -27,10 +27,10 @@ namespace AutoService
 
         public void AddPerson(string name, string lastName, byte age, string post)
         {
-            name = Name;
-            lastName = LastName;
-            age = Age;
-            post = Post;
+            Name = name;
+            LastName = lastName;
+            Age = age;
+            Post = post;
             List<Person> listPerson = new List<Person>();
         }
     }

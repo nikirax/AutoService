@@ -253,6 +253,7 @@ namespace AutoService
             this.AddPerson.TabIndex = 20;
             this.AddPerson.Text = "Добавить работника";
             this.AddPerson.UseVisualStyleBackColor = true;
+            this.AddPerson.Click += new System.EventHandler(this.AddPerson_Click);
             // 
             // AddAuto
             // 

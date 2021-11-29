@@ -26,7 +26,14 @@ namespace AutoService
 
         private void AddAuto_Click(object sender, EventArgs e)
         {
+            Auto auto = new Auto();
+            auto.AddAuto(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text);
+        }
 
+        private void AddPerson_Click(object sender, EventArgs e)
+        {
+            Person person = new Person();
+            person.AddPerson(textBox6.Text, textBox7.Text, Convert.ToByte(textBox8.Text), textBox9.Text);
         }
     }
 }

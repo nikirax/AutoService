@@ -22,5 +22,14 @@ namespace AutoService
             ifrm.Show(); // отображаем Form2
             this.Hide();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var auto = new Auto().listAuto;
+            for (var i = 0; i < auto.Count; i++)
+            {
+                    label3.Text += auto[i].ToString();
+            }
+        }
     }
 }

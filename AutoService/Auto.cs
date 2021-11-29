@@ -5,7 +5,7 @@ namespace AutoService
     /// <summary>
     /// Авто 
     /// </summary>
-    class Auto
+    class Auto 
     {
         /// <summary>
         /// Номер авто
@@ -28,14 +28,22 @@ namespace AutoService
         /// </summary>
         public string Damage { get; set; }
 
+        public List<Auto> listAuto = new List<Auto>();
+
         public void AddAuto(string number,string marka,string model,string nameHolder,string damage)
         {
-            number = Number;
-            marka = Marka;
-            model = Model;
-            nameHolder = NameHolder;
-            damage = Damage;
-            List<Auto> listAuto = new List<Auto>();
+            listAuto.Add(new Auto 
+            {
+                Number = number, 
+                Marka = marka,
+                Model = model,
+                NameHolder = nameHolder,
+                Damage = damage
+            });
+        }
+        public override string ToString()
+        {
+            return $"Номер авто: {Number}";
         }
     }
 }

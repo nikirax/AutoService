@@ -9,9 +9,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using OfficeOpenXml;
-// TODO: Сделать возможность удалять и изменять текущие записи
-// TODO: Добавить возсожность фильтровать а то есть искать нужное в файле.
-// TODO: Необязательно, но шифровать свои записи в каком нибуть json или xml
 namespace AutoService
 {
     /// <summary>
@@ -22,7 +19,7 @@ namespace AutoService
         public Form1()
         {
             InitializeComponent();
-            
+            Visibles();
         }
         /// <summary>
         /// Вызов 2 формы при нажатии кнопки
@@ -56,7 +53,10 @@ namespace AutoService
                     {
                         for(var j = 1; j <= Table.ColumnCount; j++)
                         {
-                            Table.Rows[i-1].Cells[j-1].Value = ws.Cells[i,j].Value;
+                            if (Filter(textBox1.Text, (string)ws.Cells[i, indexcreate()].Value,i)||textBox1.Text == "")
+                                Table.Rows[i - 1].Cells[j - 1].Value = ws.Cells[i, j].Value;
+                            else
+                                Table.Rows[i - 1].Cells[j - 1].Value = "";
                         }
                     }
                 }
@@ -74,7 +74,10 @@ namespace AutoService
                     {
                         for (var j = 1; j <= Table.ColumnCount; j++)
                         {
-                            Table.Rows[i - 1].Cells[j - 1].Value = ws.Cells[i, j].Value;
+                            if (Filter(textBox1.Text, (string)ws.Cells[i, indexcreate()].Value,i)||textBox1.Text == "")
+                                Table.Rows[i - 1].Cells[j - 1].Value = ws.Cells[i, j].Value;
+                            else
+                                Table.Rows[i - 1].Cells[j - 1].Value = "";
                         }
                     }
                 }
@@ -158,80 +161,121 @@ namespace AutoService
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        //TODO: Доработать фильтр чтобы корректно работал(сама ошибка:он почему то не работает больше 1 раза за 1 запуск приложения)
         public void button5_Click(object sender, EventArgs e)
         {
-            if(comboBox2.SelectedIndex == 0)
+            button1_Click(e, e);
+        }
+        /// <summary>
+        /// показывает нужный индекс 
+        /// </summary>
+        /// <returns></returns>
+        public int indexcreate()
+        {
+            if (comboBox2.SelectedIndex == 0)
             {
-                Filter(textBox1.Text,2);
+                return 2;
             }
             else if (comboBox2.SelectedIndex == 1)
             {
-                Filter(textBox1.Text, 3);
+                return 3;
             }
             else if (comboBox2.SelectedIndex == 2)
             {
-                Filter(textBox1.Text, 2);
+                return 2;
             }
             else if (comboBox2.SelectedIndex == 3)
             {
-                Filter(textBox1.Text, 3);
+                return 3;
             }
+            else
+            {
+                MessageBox.Show("Выберете что хотите фильтровать");
+            }
+            return 0;
         }
         /// <summary>
         /// Сам фильтр
         /// </summary>
         /// <param name="line">Значение на которое проверяем</param>
         /// <param name="index">индекс(в экселе столбец) проверяемого значения</param>
-        public void Filter(string line, int index)
+        public bool Filter(string line, string index,int i)
         {
-            //Ищем по фильтру
-            if (comboBox1.SelectedIndex == 1)
+            if(line == index || i == 1)
             {
-                string path = @"C:\Users\nikit\source\repos\AutoService\AutoService\Resours\auto.xlsx";
-                FileInfo fileInfo = new FileInfo(path);
-                using (ExcelPackage excelPackage = new ExcelPackage(fileInfo))
-                {
-                    var ws = excelPackage.Workbook.Worksheets.FirstOrDefault();
-                    Table.RowCount = Convert.ToInt32(ws.Cells[1, 8].Value) + 1;
-                    Table.ColumnCount = 7;
-                    for (var i = 1; i <= Table.RowCount; i++)
-                    {
-                        if ((string)ws.Cells[i, index].Value == line || i == 1)
-                        {
-                            for (var j = 1; j <= Table.ColumnCount; j++)
-                            {
-                                Table.Rows[i - 1].Cells[j - 1].Value = ws.Cells[i, j].Value;
-                            }
-                        }
-                    }
-                }
+                return true;
             }
-            else if (comboBox1.SelectedIndex == 0)
+            return false;
+        }
+        /// <summary>
+        /// Показывает и скрывает элементы изменения
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button6_Click(object sender, EventArgs e)
+        {
+            if (label4.Visible == false)
             {
-                string path = @"C:\Users\nikit\source\repos\AutoService\AutoService\Resours\person.xlsx";
-                FileInfo fileInfo = new FileInfo(path);
-                using (ExcelPackage excelPackage = new ExcelPackage(fileInfo))
-                {
-                    var ws = excelPackage.Workbook.Worksheets.FirstOrDefault();
-                    Table.RowCount = Convert.ToInt32(ws.Cells[1, 7].Value) + 1;
-                    Table.ColumnCount = 6;
-                    for (var i = 1; i <= Table.RowCount; i++)
-                    {
-                        if ((string)ws.Cells[i, index].Value == line || i == 1)
-                        {
-                            for (var j = 1; j <= Table.ColumnCount; j++)
-                            {
-                                Table.Rows[i - 1].Cells[j - 1].Value = ws.Cells[i, j].Value;
-                            }
-                        }
-                    }
-                }
+                label4.Visible = true;
+                Password.Visible = true;
+                button3.Visible = true;
+                Visibles(true);
             }
             else
             {
-                MessageBox.Show("Вы не выбрали что искать");//ошибка
+                label4.Visible = false;
+                Password.Visible = false;
+                button3.Visible = false;
+                Visibles();
             }
+        }
+        /// <summary>
+        /// Показывает и скрывает элементы фильтра
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button5_Click_1(object sender, EventArgs e)
+        {
+            if (label1.Visible == false)
+            {
+                label1.Visible = true;
+                label2.Visible = true;
+                label5.Visible = true;
+                label6.Visible = true;
+                comboBox2.Visible = true;
+                textBox1.Visible = true;
+                Visibles(true);
+            }
+            else
+            {
+                label1.Visible = false;
+                label2.Visible = false;
+                label5.Visible = false;
+                label6.Visible = false;
+                comboBox2.Visible = false;
+                textBox1.Visible = false;
+                Visibles();
+            }
+        }
+        /// <summary>
+        /// Добавляют красоты с выдвигающимися функциями
+        /// </summary>
+        public void Visibles()
+        {
+            Point loc = label3.Location;
+            loc.Y = 126;
+            label3.Location = loc;
+            Point loc1 = button6.Location;
+            loc1.Y = 126;
+            button6.Location = loc1;
+        }
+        public void Visibles(bool o)
+        {
+            Point loc = label3.Location;
+            loc.Y = 324;
+            label3.Location = loc;
+            Point loc1 = button6.Location;
+            loc1.Y = 326;
+            button6.Location = loc1;
         }
     }
 }

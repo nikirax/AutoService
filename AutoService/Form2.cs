@@ -9,12 +9,15 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Newtonsoft.Json;
+using OfficeOpenXml;
 
 namespace AutoService
 {
     /// <summary>
     /// Форма добавления новых авто и рабочих
     /// </summary>
+    // TODO: Полностью избавится от листов и настроиты !!Красивый!! вывод
     public partial class Form2 : Form
     {
         public Form2()
@@ -63,6 +66,22 @@ namespace AutoService
                 {
                     sw.WriteLine(auto.listAuto[0]);//записываем в файл в новом потоке
                 }
+                string path = @"C:\Users\nikit\source\repos\AutoService\AutoService\Resours\auto.xlsx";
+                FileInfo filePath = new FileInfo(path);//добаляем наш файл
+                using (var excelPack = new ExcelPackage(filePath))//в новом потоке записываем новые значения
+                {
+                    var ws = excelPack.Workbook.Worksheets.FirstOrDefault();//рабочий лист
+                    int j = Convert.ToInt32(ws.Cells[1, 7].Value);//кастыль он тут нужен
+                    ws.Cells[j, 1].Value = j;//ID
+                    ws.Cells[j, 2].Value = textBox1.Text;//Number
+                    ws.Cells[j, 3].Value = textBox2.Text;//Marka
+                    ws.Cells[j, 4].Value = textBox3.Text;//Model
+                    ws.Cells[j, 5].Value = textBox4.Text;//NameHolder
+                    ws.Cells[j, 6].Value = textBox5.Text;//Damage
+                    j++;
+                    ws.Cells[1, 7].Value = j;//записываем кастыль
+                    excelPack.Save();//не забываем сохранить
+                }
             }
         }
         /// <summary>
@@ -81,6 +100,7 @@ namespace AutoService
             }
             else
             {
+                //для вывода
                 Person person = new Person();
                 person.listPerson.Add(new Person
                 {
@@ -93,6 +113,23 @@ namespace AutoService
                     @"C:\Users\nikit\source\repos\AutoService\AutoService\Resours\person.txt", true))
                 {
                     sw.WriteLine(person.listPerson[0]);//записываем в файл в новом потоке
+                }
+                //запись для изменинений и удаления
+                //ссылка на xmlx документ 
+                string path = @"C:\Users\nikit\source\repos\AutoService\AutoService\Resours\person.xlsx";
+                FileInfo filePath = new FileInfo(path);//добаляем наш файл
+                using (var excelPack = new ExcelPackage(filePath))//в новом потоке записываем новые значения
+                {
+                    var ws = excelPack.Workbook.Worksheets.FirstOrDefault();//рабочий лист
+                    int j = Convert.ToInt32(ws.Cells[1, 6].Value);//кастыль
+                    ws.Cells[j, 1].Value = j;//Id
+                    ws.Cells[j, 2].Value = textBox6.Text;//Name
+                    ws.Cells[j, 3].Value = textBox7.Text;//LastName
+                    ws.Cells[j, 4].Value = Convert.ToByte(textBox8.Text);//Age не знаю зачем я записываю в числе если потом она все равно строка ну  и ладно
+                    ws.Cells[j, 5].Value = textBox9.Text;//Post
+                    j++;
+                    ws.Cells[1, 6].Value = j;//rкастыль
+                    excelPack.Save();//сохраняем
                 }
             }
         }

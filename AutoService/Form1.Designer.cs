@@ -38,8 +38,6 @@ namespace AutoService
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -75,6 +73,7 @@ namespace AutoService
             this.label1.Size = new System.Drawing.Size(64, 32);
             this.label1.TabIndex = 2;
             this.label1.Text = "Имя";
+            this.label1.Visible = false;
             // 
             // textBox1
             // 
@@ -84,6 +83,7 @@ namespace AutoService
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(154, 39);
             this.textBox1.TabIndex = 3;
+            this.textBox1.Visible = false;
             // 
             // label2
             // 
@@ -94,6 +94,7 @@ namespace AutoService
             this.label2.Size = new System.Drawing.Size(119, 32);
             this.label2.TabIndex = 4;
             this.label2.Text = "Фамилия";
+            this.label2.Visible = false;
             // 
             // textBox2
             // 
@@ -103,14 +104,14 @@ namespace AutoService
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(147, 39);
             this.textBox2.TabIndex = 5;
+            this.textBox2.Visible = false;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.panel1.Controls.Add(this.label3);
             this.panel1.Location = new System.Drawing.Point(8, 64);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(779, 379);
+            this.panel1.Size = new System.Drawing.Size(369, 379);
             this.panel1.TabIndex = 6;
             // 
             // button2
@@ -124,14 +125,6 @@ namespace AutoService
             this.button2.Text = "Добавить";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(2, 6);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(0, 13);
-            this.label3.TabIndex = 0;
             // 
             // Form1
             // 
@@ -150,8 +143,6 @@ namespace AutoService
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Авто Сервис";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -167,7 +158,6 @@ namespace AutoService
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label3;
     }
 }
 

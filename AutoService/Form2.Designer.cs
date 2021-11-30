@@ -51,6 +51,10 @@ namespace AutoService
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.AddPerson = new System.Windows.Forms.Button();
             this.AddAuto = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label13 = new System.Windows.Forms.Label();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // label1
@@ -67,7 +71,7 @@ namespace AutoService
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(12, 302);
+            this.label2.Location = new System.Drawing.Point(7, 297);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(209, 25);
             this.label2.TabIndex = 1;
@@ -112,9 +116,9 @@ namespace AutoService
             this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label6.Location = new System.Drawing.Point(12, 173);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(197, 25);
+            this.label6.Size = new System.Drawing.Size(174, 25);
             this.label6.TabIndex = 5;
-            this.label6.Text = "Инициалы владельца";
+            this.label6.Text = "Данные владельца";
             this.label6.UseMnemonic = false;
             // 
             // label7
@@ -256,7 +260,7 @@ namespace AutoService
             // AddPerson
             // 
             this.AddPerson.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.AddPerson.Location = new System.Drawing.Point(12, 488);
+            this.AddPerson.Location = new System.Drawing.Point(495, 488);
             this.AddPerson.Name = "AddPerson";
             this.AddPerson.Size = new System.Drawing.Size(262, 44);
             this.AddPerson.TabIndex = 20;
@@ -267,7 +271,7 @@ namespace AutoService
             // AddAuto
             // 
             this.AddAuto.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.AddAuto.Location = new System.Drawing.Point(12, 255);
+            this.AddAuto.Location = new System.Drawing.Point(526, 245);
             this.AddAuto.Name = "AddAuto";
             this.AddAuto.Size = new System.Drawing.Size(262, 44);
             this.AddAuto.TabIndex = 21;
@@ -275,12 +279,54 @@ namespace AutoService
             this.AddAuto.UseVisualStyleBackColor = true;
             this.AddAuto.Click += new System.EventHandler(this.AddAuto_Click);
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label12.Location = new System.Drawing.Point(7, 488);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(197, 25);
+            this.label12.TabIndex = 22;
+            this.label12.Text = "Дата трудоустройства";
+            this.label12.UseMnemonic = false;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(214, 491);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(128, 22);
+            this.dateTimePicker1.TabIndex = 23;
+            this.dateTimePicker1.Value = new System.DateTime(2021, 11, 30, 0, 0, 0, 0);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Segoe UI Semibold", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label13.Location = new System.Drawing.Point(12, 259);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(129, 25);
+            this.label13.TabIndex = 24;
+            this.label13.Text = "Дата ремонта";
+            this.label13.UseMnemonic = false;
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Location = new System.Drawing.Point(146, 262);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(133, 22);
+            this.dateTimePicker2.TabIndex = 25;
+            this.dateTimePicker2.Value = new System.DateTime(2021, 11, 30, 0, 0, 0, 0);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 544);
+            this.Controls.Add(this.dateTimePicker2);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.AddAuto);
             this.Controls.Add(this.AddPerson);
             this.Controls.Add(this.textBox9);
@@ -336,5 +382,9 @@ namespace AutoService
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.Button AddPerson;
         private System.Windows.Forms.Button AddAuto;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
     }
 }

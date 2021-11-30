@@ -1,2 +1,0 @@
-Имя: Alexnder,  Фамилия: Jobov,  Возраст: 34,  Должность: Superman
-Имя: Sasha,  Фамилия: Urban,  Возраст: 40,  Должность: Master

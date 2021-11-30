@@ -52,34 +52,37 @@ namespace AutoService
             }
             else
             {
-                Auto auto = new Auto();
-                auto.listAuto.Add(new Auto
-                {
-                    Number = textBox1.Text,
-                    Marka = textBox2.Text,
-                    Model = textBox3.Text,
-                    NameHolder = textBox4.Text,
-                    Damage = textBox5.Text
-                });//добавляем в лист
-                using (var sw = new StreamWriter(
-                    @"C:\Users\nikit\source\repos\AutoService\AutoService\Resours\auto.txt", true))
-                {
-                    sw.WriteLine(auto.listAuto[0]);//записываем в файл в новом потоке
-                }
+                #region list
+                //Auto auto = new Auto();
+                //auto.listAuto.Add(new Auto
+                //{
+                //    Number = textBox1.Text,
+                //    Marka = textBox2.Text,
+                //    Model = textBox3.Text,
+                //    NameHolder = textBox4.Text,
+                //    Damage = textBox5.Text
+                //});//добавляем в лист
+                //using (var sw = new StreamWriter(
+                //    @"C:\Users\nikit\source\repos\AutoService\AutoService\Resours\auto.txt", true))
+                //{
+                //    sw.WriteLine(auto.listAuto[0]);//записываем в файл в новом потоке
+                //}
+                #endregion
                 string path = @"C:\Users\nikit\source\repos\AutoService\AutoService\Resours\auto.xlsx";
                 FileInfo filePath = new FileInfo(path);//добаляем наш файл
                 using (var excelPack = new ExcelPackage(filePath))//в новом потоке записываем новые значения
                 {
                     var ws = excelPack.Workbook.Worksheets.FirstOrDefault();//рабочий лист
-                    int j = Convert.ToInt32(ws.Cells[1, 7].Value);//кастыль он тут нужен
+                    int j = Convert.ToInt32(ws.Cells[1, 8].Value);//кастыль он тут нужен
                     ws.Cells[j, 1].Value = j;//ID
                     ws.Cells[j, 2].Value = textBox1.Text;//Number
                     ws.Cells[j, 3].Value = textBox2.Text;//Marka
                     ws.Cells[j, 4].Value = textBox3.Text;//Model
                     ws.Cells[j, 5].Value = textBox4.Text;//NameHolder
                     ws.Cells[j, 6].Value = textBox5.Text;//Damage
+                    ws.Cells[j, 7].Value = dateTimePicker2.Text;//Date
                     j++;
-                    ws.Cells[1, 7].Value = j;//записываем кастыль
+                    ws.Cells[1, 8].Value = j;//записываем кастыль
                     excelPack.Save();//не забываем сохранить
                 }
             }
@@ -100,20 +103,22 @@ namespace AutoService
             }
             else
             {
+                #region list
                 //для вывода
-                Person person = new Person();
-                person.listPerson.Add(new Person
-                {
-                    Name = textBox6.Text,
-                    LastName = textBox7.Text,
-                    Age = Convert.ToByte(textBox8.Text),
-                    Post = textBox9.Text
-                });//добавляем в лист
-                using (var sw = new StreamWriter(
-                    @"C:\Users\nikit\source\repos\AutoService\AutoService\Resours\person.txt", true))
-                {
-                    sw.WriteLine(person.listPerson[0]);//записываем в файл в новом потоке
-                }
+                //Person person = new Person();
+                //person.listPerson.Add(new Person
+                //{
+                //    Name = textBox6.Text,
+                //    LastName = textBox7.Text,
+                //    Age = Convert.ToByte(textBox8.Text),
+                //    Post = textBox9.Text
+                //});//добавляем в лист
+                //using (var sw = new StreamWriter(
+                //    @"C:\Users\nikit\source\repos\AutoService\AutoService\Resours\person.txt", true))
+                //{
+                //    sw.WriteLine(person.listPerson[0]);//записываем в файл в новом потоке
+                //}
+                #endregion
                 //запись для изменинений и удаления
                 //ссылка на xmlx документ 
                 string path = @"C:\Users\nikit\source\repos\AutoService\AutoService\Resours\person.xlsx";
@@ -121,14 +126,15 @@ namespace AutoService
                 using (var excelPack = new ExcelPackage(filePath))//в новом потоке записываем новые значения
                 {
                     var ws = excelPack.Workbook.Worksheets.FirstOrDefault();//рабочий лист
-                    int j = Convert.ToInt32(ws.Cells[1, 6].Value);//кастыль
+                    int j = Convert.ToInt32(ws.Cells[1, 7].Value);//кастыль
                     ws.Cells[j, 1].Value = j;//Id
                     ws.Cells[j, 2].Value = textBox6.Text;//Name
                     ws.Cells[j, 3].Value = textBox7.Text;//LastName
                     ws.Cells[j, 4].Value = Convert.ToByte(textBox8.Text);//Age не знаю зачем я записываю в числе если потом она все равно строка ну  и ладно
                     ws.Cells[j, 5].Value = textBox9.Text;//Post
+                    ws.Cells[j, 6].Value = dateTimePicker1.Text;//date
                     j++;
-                    ws.Cells[1, 6].Value = j;//rкастыль
+                    ws.Cells[1, 7].Value = j;//кастыль
                     excelPack.Save();//сохраняем
                 }
             }
